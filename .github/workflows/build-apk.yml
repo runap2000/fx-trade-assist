@@ -26,7 +26,7 @@ jobs:
 
       - name: Unpack project
         run: |
-          unzip -q FX_TRADE_ASSIST_Android_Project.zip -d source
+          unzip -q FX_TRADE_ASSIST_Android_Project_FIXED.zip -d source
 
       - name: Build APK
         run: |
