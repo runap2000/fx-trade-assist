@@ -1,0 +1,35 @@
+
+name: Build FX TRADE ASSIST APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Unpack Android project
+        run: |
+          unzip -q FX_TRADE_ASSIST_Android_Project.zip -d source
+
+      - name: Install Gradle and build APK
+        run: |
+          curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o gradle.zip
+          unzip -q gradle.zip
+          cd source/FX_TRADE_ASSIST
+          $GITHUB_WORKSPACE/gradle-8.9/bin/gradle assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: FX-TRADE-ASSIST-APK
+          path: source/FX_TRADE_ASSIST/app/build/outputs/apk/debug/app-debug.apk
