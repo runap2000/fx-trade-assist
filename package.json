@@ -1,0 +1,18 @@
+{
+  "name": "fx-trade-assist",
+  "version": "2.7.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "vapid": "node generate-vapid.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@microsoft/signalr": "^10.0.0",
+    "ws": "^8.18.0",
+    "web-push": "^3.6.7"
+  }
+}
