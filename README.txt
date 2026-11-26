@@ -1,4 +1,4 @@
-FX TRADE ASSIST v2.10.0
+FX TRADE ASSIST v2.10.1
 
 差し替え対象：server.js / index.html / sw.js / package.json
 Railwayの既存環境変数（VAPID_PUBLIC_KEY / VAPID_PRIVATE_KEY / VAPID_SUBJECT / DATA_DIR）は維持してください。
@@ -8,3 +8,6 @@ LINE FX実取引台帳を進行中・勝ち・負けの個別取引方式に変�
 自動発注は行いません。
 
 v2.10.0: 早期検知（買い準備/売り準備）、短期時間足の候補判定緩和、利確・利益保護警告を追加。SignalRティックにより15秒間隔で分析を再評価します。
+
+
+v2.10.1: エントリー品質ゲートを追加。買い候補で価格が15分EMA20下、EMA20からATR比0.85超の乖離、RSI7>=78またはストキャスK>=85のいずれかを検出した場合は追い買い警戒として見送り。売り候補は対称条件。判定は候補の抑制であり、勝率向上を保証するものではありません。
